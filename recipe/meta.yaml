@@ -1,5 +1,5 @@
 {% set name = "pyls-black" %}
-{% set version = "0.4.6" %}
+{% set version = "0.4.7" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 33700e5ed605636ea7ba39188a1362d2f8602f7301f8f2b8544773886f965663
+  sha256: 6e087adca067391a65a577676ea2d62f0a6cb2bf23bf45dbefbbd48c0d2bb8d4
 
 build:
   number: 0
   noarch: python
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
@@ -33,7 +33,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'Black plugin for the Python Language Server'
+  summary: Black plugin for the Python Language Server
   dev_url: https://github.com/rupert/pyls-black
 
 extra:
