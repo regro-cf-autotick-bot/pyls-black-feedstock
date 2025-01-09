@@ -6,17 +6,17 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 33700e5ed605636ea7ba39188a1362d2f8602f7301f8f2b8544773886f965663
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
   host:
-    - python
+    - python {{ python_min }}
     - pip
   run:
     - black
@@ -24,6 +24,8 @@ requirements:
     - toml
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - pyls_black
     - pyls_black.plugin
